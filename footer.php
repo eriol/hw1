@@ -5,10 +5,10 @@
           <div>
             <p class="disclaimer">ἀθλητική protegge i tuoi dati.</p>
             <div id="social_logos">
-              <img class="social_logo" src="images/cloud-solid.svg" />
-              <img class="social_logo" src="images/mountain-solid.svg" />
-              <img class="social_logo" src="images/bolt-solid.svg" />
-              <img class="social_logo" src="images/gopuram-solid.svg" />
+              <img class="social_logo" src="/images/cloud-solid.svg" />
+              <img class="social_logo" src="/images/mountain-solid.svg" />
+              <img class="social_logo" src="/images/bolt-solid.svg" />
+              <img class="social_logo" src="/images/gopuram-solid.svg" />
             </div>
           </div>
         </div>

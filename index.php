@@ -18,7 +18,7 @@
             Sei già in ἀθλητική?
             <a class="has-primary-color is-bold" href="#">Accedi</a>
           </p>
-          <a class="button button-100 account_register_email">
+          <a class="button button-100 account_register_email" href="/register/">
             Iscriviti con l'indirizzo email
           </a>
           <p class="disclaimer">
