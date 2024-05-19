@@ -214,6 +214,54 @@ a.account_register_email:hover {
   font-size: 0.8em;
 }
 
+#core {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  margin-top: var(--nav-height);
+}
+
+#register-form {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 2px;
+  width: 400px;
+
+  margin: 80px auto;
+}
+
+#register-form form {
+}
+
+#register-form input,
+label {
+  display: block;
+  width: 100%;
+}
+
+#register-form label {
+  color: white;
+}
+
+#register-form .title {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  margin-bottom: 20px;
+  padding: 20px 30px;
+}
+#register-form .data {
+  padding: 20px 30px;
+}
+
+#register-form input {
+  padding: 15px 24px;
+  box-sizing: border-box;
+}
+
 footer {
   width: 100%;
 }
