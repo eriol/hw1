@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <script src="/js/hw1.js" defer></script>
+    <?php if (isset($extra_js)) { echo '<script src="/js/' . $extra_js . '" defer></script>'; } ?>
   </head>
   <body>
     <header>
