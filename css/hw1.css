@@ -245,11 +245,6 @@ label {
   color: white;
 }
 
-#register-form input {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
 #register-form .title {
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
@@ -263,8 +258,20 @@ label {
 }
 
 #register-form input {
+  font-size: 1.2em;
   padding: 15px 24px;
   box-sizing: border-box;
+}
+
+#register-form .error {
+  color: red;
+  font-size: 0.8em;
+}
+
+#register-form .email,
+.password,
+.password_confirm {
+  margin-bottom: 20px;
 }
 
 footer {
