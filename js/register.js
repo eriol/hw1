@@ -61,7 +61,11 @@ function check_password_confirm(event) {
 }
 
 function onRegistration(event) {
-  if (!check_email() || !check_password() || !check_password_confirm()) {
+  const is_email_valid = check_email();
+  const is_password_valid = check_password();
+  const is_password_confirm_valid = check_password_confirm();
+
+  if (!is_email_valid || !is_password_valid || !is_password_confirm_valid) {
     event.preventDefault();
   }
 }
