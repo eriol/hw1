@@ -17,7 +17,8 @@ make-containers:
     set -euxo pipefail
 
     id=$(buildah from --pull docker.io/php:8.3-apache-bookworm)
-    buildah run $id docker-php-ext-install pdo pdo_mysql
+    buildah run $id docker-php-ext-install mysqli pdo pdo_mysql
+    buildah run $id docker-php-ext-enable mysqli
     buildah commit $id wp24-php-apache
 
     id=$(buildah from --pull docker.io/mysql:8)
