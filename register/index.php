@@ -1,5 +1,6 @@
 <?php
     $title = "ἀθλητική (athletikḗ) - Registrati";
+    $extra_js = "register.js";
     require_once("../header.php");
 ?>
 
@@ -9,12 +10,12 @@
   <div class="data">
     <form action="" method="post">
       <label for="name">Email: </label>
-      <input type="text" name="email" value="Inserisci email" required />
+      <input type="text" name="email" placeholder="Inserisci email" />
       <label for="password1">Password: </label>
-      <input type="password1" name="password1" />
+      <input type="password1" name="password1" placeholder="Crea una password"/>
       <label for="password1">Ripeti password: </label>
-      <input type="password2" name="password2" />
-      <input type="submit">
+      <input type="password2" name="password2" placeholder="Ripeti password"/>
+      <input type="submit" value="Registrati">
     </form>
   </div>
 </div>
