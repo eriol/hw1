@@ -9,12 +9,21 @@
   <div class="title">Registrati</div>
   <div class="data">
     <form action="" method="post">
-      <label for="name">Email: </label>
-      <input type="text" name="email" placeholder="Inserisci email" />
-      <label for="password1">Password: </label>
-      <input type="password1" name="password1" placeholder="Crea una password"/>
-      <label for="password1">Ripeti password: </label>
-      <input type="password2" name="password2" placeholder="Ripeti password"/>
+      <div class="email">
+        <label for="name">Email: </label>
+        <input type="text" name="email" placeholder="Inserisci email" />
+        <p class="error"></p>
+      </div>
+      <div class="password">
+        <label for="password">Password: </label>
+        <input type="password" name="password" placeholder="Crea una password"/>
+        <p class="error"></p>
+      </div>
+      <div class="password_confirm">
+        <label for="password_confirm">Ripeti password: </label>
+        <input type="password" name="password_confirm" placeholder="Ripeti password"/>
+        <p class="error"></p>
+      </div>
       <input type="submit" value="Registrati">
     </form>
   </div>
