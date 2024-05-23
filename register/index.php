@@ -52,7 +52,10 @@
 
         database_close($conn);
     } else {
-        $errors[] = "Riempire tutti i campi!";
+        if(isset($_POST["submit_button"]))
+        {
+            $errors[] = "Riempire tutti i campi!";
+        }
     }
 
 
@@ -81,7 +84,7 @@
         <input type="password" name="password_confirm" placeholder="Ripeti password"/>
         <p class="error"></p>
       </div>
-      <input type="submit" value="Registrati">
+      <input type="submit" name="submit_button" value="Registrati">
     </form>
     <?php
         if(isset($errors)) {
