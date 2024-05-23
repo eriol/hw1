@@ -51,6 +51,8 @@
         }
 
         database_close($conn);
+    } else {
+        $errors[] = "Riempire tutti i campi!";
     }
 
 
@@ -81,6 +83,13 @@
       </div>
       <input type="submit" value="Registrati">
     </form>
+    <?php
+        if(isset($errors)) {
+            foreach($errors as $error) {
+                echo "<div class='error'>$error</div>";
+            }
+        }
+    ?>
   </div>
 </div>
 </section>
