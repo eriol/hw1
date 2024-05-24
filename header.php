@@ -34,7 +34,7 @@
             </li>
           </ul>
         </div>
-        <a class="button">Accedi</a>
+        <a class="button" href="/login/">Accedi</a>
       </nav>
       <section id="menu_panel" class="">
         <nav id="navleft">
