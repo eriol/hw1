@@ -12,7 +12,10 @@
     }
 
     $title = "ἀθλητική (athletikḗ) - Accedi";
-    $extra_js = "login.js";
+    $extra_js = [
+        ["file" => "auth.js", "type" => "module"],
+        ["file" => "login.js", "type" => "module" ]
+    ];
     require_once("../header.php");
 ?>
 
