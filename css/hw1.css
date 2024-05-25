@@ -82,8 +82,8 @@ a:hover {
   align-items: center;
 }
 
-.logo {
-  color: var(--primary-color);
+.logo a:hover {
+  text-decoration: none;
 }
 
 .has-primary-color {

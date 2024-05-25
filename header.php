@@ -21,7 +21,7 @@
           <a id="menu">
             <img src="/images/bars-solid.svg" data-state="open" />
           </a>
-          <div class="logo has-primary-color is-bold">ἀθλητική</div>
+          <div class="logo"><a class="has-primary-color is-bold" href="/">ἀθλητική</a></div>
           <ul class="links">
             <li>
               <a href="#">Funzioni</a>
