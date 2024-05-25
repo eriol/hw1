@@ -12,7 +12,18 @@
       rel="stylesheet"
     />
     <script src="/js/hw1.js" defer></script>
-    <?php if (isset($extra_js)) { echo '<script src="/js/' . $extra_js . '" defer></script>'; } ?>
+    <?php if (isset($extra_js)) {
+    foreach($extra_js as $ejs) {
+        if(isset($ejs["type"]) && $ejs["type"] === "module") {
+            $type='type="module"';
+        }
+        else{
+            $type='';
+        }
+
+            echo '<script ' . $type . ' src="/js/' . $ejs["file"] . '" defer></script>';
+        }
+    } ?>
   </head>
   <body>
     <header>
