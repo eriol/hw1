@@ -65,7 +65,7 @@
 ?>
 
 <section id="core">
-<div id="register-form">
+<div id="form_container">
   <div class="title">Registrati</div>
   <div class="data">
     <form action="" method="post">

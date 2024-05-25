@@ -224,7 +224,7 @@ a.account_register_email:hover {
   margin-top: var(--nav-height);
 }
 
-#register-form {
+#form_container {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 2px;
   width: 400px;
@@ -232,20 +232,20 @@ a.account_register_email:hover {
   margin: 100px auto;
 }
 
-#register-form form {
+#form_container form {
 }
 
-#register-form input,
+#form_container input,
 label {
   display: block;
   width: 100%;
 }
 
-#register-form label {
+#form_container label {
   color: white;
 }
 
-#register-form .title {
+#form_container .title {
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
   font-size: 2em;
@@ -253,22 +253,22 @@ label {
   margin-bottom: 20px;
   padding: 20px 30px;
 }
-#register-form .data {
+#form_container .data {
   padding: 20px 30px;
 }
 
-#register-form input {
+#form_container input {
   font-size: 1.2em;
   padding: 15px 24px;
   box-sizing: border-box;
 }
 
-#register-form .error {
+#form_container .error {
   color: red;
   font-size: 0.8em;
 }
 
-#register-form .email,
+#form_container .email,
 .password,
 .password_confirm {
   margin-bottom: 20px;
