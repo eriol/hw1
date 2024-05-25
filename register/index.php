@@ -61,7 +61,7 @@
 
     $title = "ἀθλητική (athletikḗ) - Registrati";
     $extra_js = [
-        ["file" => "auth.js", "type" => ""],
+        ["file" => "auth.js", "type" => "module"],
         ["file" => "register.js", "type" => "module" ]
     ];
     require_once("../header.php");
