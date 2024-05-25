@@ -1,9 +1,9 @@
 const MIN_PASSWORD_LENGTH = 8;
-const form = document.querySelector('#register-form form');
-const email = document.querySelector('#register-form .email input');
-const password = document.querySelector('#register-form .password input');
+const form = document.querySelector('#form_container form');
+const email = document.querySelector('#form_container .email input');
+const password = document.querySelector('#form_container .password input');
 const password_confirm = document.querySelector(
-  '#register-form .password_confirm input',
+  '#form_container .password_confirm input',
 );
 
 function validate_email(email) {
@@ -20,7 +20,7 @@ function validate_password(password) {
 }
 
 function check_email(event) {
-  const error = document.querySelector('#register-form .email .error');
+  const error = document.querySelector('#form_container .email .error');
   const is_email_valid = validate_email(email.value);
   if (!is_email_valid) {
     error.textContent = 'Email non valida!';
@@ -32,7 +32,7 @@ function check_email(event) {
 }
 
 function check_password(event) {
-  const error = document.querySelector('#register-form .password .error');
+  const error = document.querySelector('#form_container .password .error');
   const is_password_valid = validate_password(password.value);
   if (!is_password_valid) {
     error.textContent = 'La password deve contenere almeno 8 caratteri!';
@@ -45,7 +45,7 @@ function check_password(event) {
 
 function check_password_confirm(event) {
   const error = document.querySelector(
-    '#register-form .password_confirm .error',
+    '#form_container .password_confirm .error',
   );
   const is_password_confirm_valid = validate_password(password_confirm.value);
   const is_password_confirm_equal_password =
