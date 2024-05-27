@@ -1,4 +1,11 @@
 <?php
+    require_once("auth.php");
+
+    if(check_session()) {
+        header("Location: /home/");
+        exit;
+    }
+
     $title = "ἀθλητική (athletikḗ) - Il primo network per gli atleti dai tempi di Fidippide";
     require_once("header.php");
 ?>
