@@ -37,15 +37,23 @@
           </a>
           <div class="logo"><a class="has-primary-color is-bold" href="/">ἀθλητική</a></div>
           <ul class="links">
-            <li>
-              <a href="#">Funzioni</a>
-            </li>
-            <li>
-              <a href="#">Sfide</a>
-            </li>
-            <li>
-              <a href="#">Abbonati</a>
-            </li>
+            <?php
+                if(check_session()) {
+                    echo '<li>
+                            <a href="/profile/">Profilo</a>
+                          </li>';
+                } else {
+                    echo '<li>
+                            <a href="#">Funzioni</a>
+                          </li>
+                          <li>
+                            <a href="#">Sfide</a>
+                          </li>
+                          <li>
+                            <a href="#">Abbonati</a>
+                          </li>';
+                }
+            ?>
           </ul>
         </div>
         <?php
