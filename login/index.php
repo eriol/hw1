@@ -23,6 +23,7 @@
            header("Location: /home/");
            exit;
         } else {
+            database_close($conn);
             $errors[] = "Email o password errati.";
         }
     }
