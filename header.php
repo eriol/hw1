@@ -1,3 +1,6 @@
+<?php
+    require_once("auth.php");
+?>
 <!doctype html>
 <html>
   <head>
@@ -45,7 +48,13 @@
             </li>
           </ul>
         </div>
-        <a class="button" href="/login/">Accedi</a>
+        <?php
+            if(check_session()) {
+                echo '<a class="button" href="/logout/">Logout</a>';
+            } else {
+                echo '<a class="button" href="/login/">Accedi</a>';
+            }
+        ?>
       </nav>
       <section id="menu_panel" class="">
         <nav id="navleft">
