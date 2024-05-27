@@ -75,24 +75,24 @@
       <div class="email">
         <label for="name">Email: </label>
         <input type="text" name="email" placeholder="Inserisci email" />
-        <p class="error"></p>
+        <p class="error text-small"></p>
       </div>
       <div class="password">
         <label for="password">Password: </label>
         <input type="password" name="password" placeholder="Crea una password"/>
-        <p class="error"></p>
+        <p class="error text-small"></p>
       </div>
       <div class="password_confirm">
         <label for="password_confirm">Ripeti password: </label>
         <input type="password" name="password_confirm" placeholder="Ripeti password"/>
-        <p class="error"></p>
+        <p class="error text-small"></p>
       </div>
       <input type="submit" name="submit_button" value="Registrati">
     </form>
     <?php
         if(isset($errors)) {
             foreach($errors as $error) {
-                echo "<div class='error'>$error</div>";
+                echo "<div class='error text-normal'>$error</div>";
             }
         }
     ?>

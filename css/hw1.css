@@ -111,6 +111,10 @@ a.button:hover {
   text-decoration: none;
 }
 
+.text-small {
+  font-size: 0.8em;
+}
+
 .text-normal {
   font-size: 1.1em;
 }
@@ -265,7 +269,6 @@ label {
 
 #form_container .error {
   color: red;
-  font-size: 0.8em;
 }
 
 #form_container .email,

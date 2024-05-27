@@ -11,6 +11,28 @@
         exit;
     }
 
+    if(!empty($_POST["email"]) && !empty($_POST["password"]))
+    {
+        $errors = [];
+        $conn = database_open($config);
+
+        $user_id = check_user($conn, $_POST["email"], $_POST["password"]);
+        if ($user_id) {
+           $_SESSION["logged_user_id"] = $user_id;
+           database_close($conn);
+           header("Location: /home/");
+           exit;
+        } else {
+            $errors[] = "Email o password errati.";
+        }
+    }
+    else {
+        if(isset($_POST["submit_button"]))
+        {
+            $errors[] = "Tutti i campi sono obbligatori!";
+        }
+    }
+
     $title = "ἀθλητική (athletikḗ) - Accedi";
     $extra_js = [
         ["file" => "auth.js", "type" => "module"],
@@ -27,19 +49,19 @@
       <div class="email">
         <label for="name">Email: </label>
         <input type="text" name="email" placeholder="Inserisci email" />
-        <p class="error"></p>
+        <p class="error text-small"></p>
       </div>
       <div class="password">
         <label for="password">Password: </label>
         <input type="password" name="password" placeholder="Inserisci password"/>
-        <p class="error"></p>
+        <p class="error text-small"></p>
       </div>
       <input type="submit" value="Accedi">
     </form>
     <?php
         if(isset($errors)) {
             foreach($errors as $error) {
-                echo "<div class='error'>$error</div>";
+                echo "<p class='error text-normal'>$error</p>";
             }
         }
     ?>
