@@ -4,8 +4,8 @@ USE athletike;
 
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(150) NOT NULL,
-    password CHAR(60) NOT NULL
+    email VARCHAR(250) NOT NULL,
+    password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS profiles (
@@ -16,3 +16,7 @@ CREATE TABLE IF NOT EXISTS profiles (
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+CREATE TRIGGER empty_profile AFTER INSERT ON users
+    FOR EACH ROW
+    INSERT INTO profiles (user_id) VALUES (NEW.id);
