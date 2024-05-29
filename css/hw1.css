@@ -277,6 +277,28 @@ label {
   margin-bottom: 20px;
 }
 
+#profile_container {
+  border-radius: 2px;
+  width: 60%;
+
+  margin: 20px auto;
+}
+
+#profile_container .title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  padding: 10px 0px;
+  border-bottom: 1px solid black;
+}
+
+#profile_container .data {
+  display: flex;
+  flex-direction: column;
+}
+#profile_container .data .row {
+  display: flex;
+}
+
 footer {
   width: 100%;
 }
