@@ -308,6 +308,10 @@ label {
   background-color: lightgray;
 }
 
+img.edit {
+  height: 20px;
+}
+
 footer {
   width: 100%;
 }

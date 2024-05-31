@@ -15,7 +15,7 @@
 <section id="core">
 
   <div id="profile_container">
-    <div class="title">Profilo</div>
+    <div class="title">Profilo <span id="edit-profile"><img class="edit" src="/images/pen-to-square-solid.svg"></span></div>
     <div class="data">
       <div id="name" class="row">
         <div class="label cell">Nome:</div>
