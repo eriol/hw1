@@ -292,11 +292,20 @@ label {
 }
 
 #profile_container .data {
-  display: flex;
-  flex-direction: column;
+  display: table;
+  width: 100%;
 }
 #profile_container .data .row {
-  display: flex;
+  display: table-row;
+}
+
+#profile_container .data .cell {
+  display: table-cell;
+  padding: 5px;
+}
+
+#profile_container .data .row:nth-child(odd) {
+  background-color: lightgray;
 }
 
 footer {

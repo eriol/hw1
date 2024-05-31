@@ -18,16 +18,16 @@
     <div class="title">Profilo</div>
     <div class="data">
       <div id="name" class="row">
-        <div class="label">Nome:</div>
-        <div class="content"></div>
+        <div class="label cell">Nome:</div>
+        <div class="content cell"></div>
       </div>
       <div id="birthday" class="row">
-        <div class="label">Compleanno:</div>
-        <div class="content"></div>
+        <div class="label cell">Compleanno:</div>
+        <div class="content cell"></div>
       </div>
       <div id="bio" class="row">
-        <div class="label">Bio:</div>
-        <div class="content"></div>
+        <div class="label cell">Bio:</div>
+        <div class="content cell"></div>
       </div>
     </div>
   </div>
