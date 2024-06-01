@@ -4,6 +4,68 @@ const editButton = document.querySelector('#edit-profile');
 const formConteiner = document.querySelector('#form-profile');
 const form = document.querySelector('#form-profile form');
 const data = document.querySelector('#profile_container .data');
+const nameInput = document.querySelector('form input[name="name"]');
+const bioInput = document.querySelector('form input[name="bio"]');
+const ageInput = document.querySelector('form input[name="age"]');
+
+function validate_empty(value) {
+  if (value.trim() === '') {
+    return false;
+  }
+
+  return true;
+}
+
+function validate_age(value) {
+  const age = parseInt(value);
+  if (isNaN(age) || age < 1) {
+    return false;
+  }
+
+  return true;
+}
+
+function check_name(event) {
+  const error = document.querySelector(
+    '#form-profile .name .error',
+  );
+  const is_name_valid = validate_empty(nameInput.value);
+  if (!is_name_valid) {
+    error.textContent = 'Il nome non può essere vuoto.';
+    return false;
+  } else {
+    error.textContent = '';
+    return true;
+  }
+}
+
+function check_age(event) {
+  const error = document.querySelector(
+    '#form-profile .age .error',
+  );
+  const is_age_valid = validate_age(ageInput.value);
+  if (!is_age_valid) {
+    error.textContent = 'L\'età deve essere > 1.';
+    return false;
+  } else {
+    error.textContent = '';
+    return true;
+  }
+}
+
+function check_bio(event) {
+  const error = document.querySelector(
+    '#form-profile .bio .error',
+  );
+  const is_bio_valid = validate_empty(bioInput.value);
+  if (!is_bio_valid) {
+    error.textContent = 'La biografia non può essere vuota.';
+    return false;
+  } else {
+    error.textContent = '';
+    return true;
+  }
+}
 
 function onGetProfileResponse(response) {
   return response.json();
@@ -11,11 +73,8 @@ function onGetProfileResponse(response) {
 
 function onProfileJson(json) {
   const name = document.querySelector('#name > .content');
-  const nameInput = document.querySelector('form input[name="name"]');
   const age = document.querySelector('#age > .content');
-  const ageInput = document.querySelector('form input[name="age"]');
   const bio = document.querySelector('#bio > .content');
-  const bioInput = document.querySelector('form input[name="bio"]');
 
   name.textContent = json.name;
   nameInput.value = json.name;
@@ -48,13 +107,22 @@ function onUpdateProfileJson(json) {
 function onProfileUpdate(event) {
   event.preventDefault();
 
-  const formData = { method: 'POST', body: new FormData(form) };
+  const is_name_valid = check_name();
+  const is_age_valid = check_age();
+  const is_bio_valid = check_bio();
 
-  fetch(PROFILE_EDIT_API_URL, formData).then(onUpdateProfileResponse).then(
-    onUpdateProfileJson,
-  );
+  if (is_name_valid && is_age_valid && is_bio_valid) {
+    const formData = { method: 'POST', body: new FormData(form) };
+
+    fetch(PROFILE_EDIT_API_URL, formData).then(onUpdateProfileResponse).then(
+      onUpdateProfileJson,
+    );
+  }
 }
 
+nameInput.addEventListener('blur', check_name);
+ageInput.addEventListener('blur', check_age);
+bioInput.addEventListener('blur', check_bio);
 editButton.addEventListener('click', onEditButtonClicked);
 form.addEventListener('submit', onProfileUpdate);
 
