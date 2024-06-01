@@ -73,7 +73,7 @@
   <div class="data">
     <form action="" method="post">
       <div class="email">
-        <label for="name">Email: </label>
+        <label for="email">Email: </label>
         <input type="text" name="email" placeholder="Inserisci email" />
         <p class="error text-small"></p>
       </div>
