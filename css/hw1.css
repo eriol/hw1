@@ -240,7 +240,7 @@ a.account_register_email:hover {
 }
 
 #form_container input,
-label {
+#form_container label {
   display: block;
   width: 100%;
 }
@@ -291,15 +291,16 @@ label {
   border-bottom: 1px solid black;
 }
 
-#profile_container .data {
+#profile_container .data,
+#profile_container form {
   display: table;
   width: 100%;
 }
-#profile_container .data .row {
+#profile_container .row {
   display: table-row;
 }
 
-#profile_container .data .cell {
+#profile_container .cell {
   display: table-cell;
   padding: 5px;
 }
