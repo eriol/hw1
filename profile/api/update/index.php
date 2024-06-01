@@ -5,10 +5,10 @@
     require_once("../../../config.php");
     require_once("../database.php");
 
-    // if(!check_session()) {
-    //     header("Location: /login/");
-    //     exit;
-    // }
+    if(!check_session()) {
+        header("Location: /login/");
+        exit;
+    }
 
     header('Content-Type: application/json; charset=utf-8');
 
@@ -19,7 +19,7 @@
         $bio = $_POST["bio"];
 
         $age = intval($age);
-        if ($age <= 1) {
+        if ($age < 1) {
             echo json_encode(["error" => "L'età deve essere maggiore di 1."]);
             exit;
         }
