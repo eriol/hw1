@@ -4,6 +4,7 @@ const PROFILE_FAVORITE_ATHLETE_EDIT_API_URL =
   '/profile/api/update-favorite-athlete/';
 const ATHLETES_EXTERNAL_API_URL = 'https://wp24-athletes.colca.mornie.org';
 const ATHLETES_SEARCH_API_URL = '/search-athletes/?q=';
+const ATHLETES_GET_API_URL = '/athletes/?q=';
 const editButton = document.querySelector('#edit-profile');
 const formContainer = document.querySelector('#form-profile');
 const form = document.querySelector('#form-profile form');
@@ -81,6 +82,25 @@ function onGetProfileResponse(response) {
   return response.json();
 }
 
+function onAthleteResponse(response) {
+  return response.json();
+}
+
+function onAthleteJson(json) {
+  console.log(json);
+  const athleteContainer = document.getElementById('athlete_container');
+  athleteContainer.innerHTML = '';
+
+  const name = document.createElement('div');
+  name.textContent = json.name;
+  name.classList.add('name');
+  athleteContainer.appendChild(name);
+  const image = document.createElement('img');
+  image.src = ATHLETES_EXTERNAL_API_URL + '/images/' + json.slug
+    + '?size=M';
+  athleteContainer.appendChild(image);
+}
+
 function onProfileJson(json) {
   const name = document.querySelector('#name > .content');
   const age = document.querySelector('#age > .content');
@@ -92,6 +112,15 @@ function onProfileJson(json) {
   ageInput.value = json.age;
   bio.textContent = json.bio;
   bioInput.value = json.bio;
+
+  if (json.favorite_athlete !== '') {
+    console.log(json);
+
+    fetch(ATHLETES_GET_API_URL + encodeURIComponent(json.favorite_athlete))
+      .then(
+        onAthleteResponse,
+      ).then(onAthleteJson);
+  }
 }
 
 function fetchProfile() {

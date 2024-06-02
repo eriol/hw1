@@ -51,7 +51,7 @@
       </form>
     </div>
     <div class="title">Atleta preferito <span id="edit-athlete"><img class="edit" src="/images/pen-to-square-solid.svg"></span></div>
-
+    <div id="athlete_container"></div>
   </div>
 
   <div id="overlay" class="hidden">

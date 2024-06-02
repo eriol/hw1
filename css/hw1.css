@@ -388,6 +388,21 @@ a.account_register_email:hover {
   padding: 10px;
 }
 
+#athlete_container {
+  display: flex;
+  flex-direction: column;
+}
+
+#athlete_container .name {
+  padding: 5px 0px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+#athlete_container img {
+  width: 400px;
+}
+
 img.edit {
   height: 20px;
 }
