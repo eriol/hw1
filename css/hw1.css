@@ -296,7 +296,8 @@ a.account_register_email:hover {
   display: table;
   width: 100%;
 }
-#profile_container .row {
+#profile_container .row,
+.table-row {
   display: table-row;
 }
 
@@ -333,12 +334,28 @@ a.account_register_email:hover {
   display: flex;
   justify-content: center;
 }
+#search_athlete_container form {
+  display: table;
+}
 
-#overlay .search-athlete {
-  width: 100%;
+.table-row input {
+  display: table-cell;
+  margin: 10px;
+}
+
+#search_athlete input[type="text"],
+#search_athlete input[type="submit"] {
   padding: 10px 10px;
   font-size: 1.2em;
   box-sizing: border-box;
+}
+
+#search_athlete input[type="submit"] {
+  border: 0 none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background-color: var(--primary-color);
 }
 
 img.edit {

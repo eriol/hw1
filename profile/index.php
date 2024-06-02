@@ -57,8 +57,11 @@
   <div id="overlay" class="hidden">
     <div class="title">Cerca il tuo atleta preferito</div>
     <div id="search_athlete_container">
-      <form>
-        <input class="search-athlete" type="input" name="search-athlete">
+      <form id="search_athlete">
+        <div class="table-row">
+          <input class="search-athlete" type="text" name="search-athlete">
+          <input type="submit" value="Cerca">
+        </div>
       </form>
     </div>
   </div>
