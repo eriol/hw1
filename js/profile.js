@@ -1,7 +1,7 @@
 const PROFILE_API_URL = '/profile/api/get/';
 const PROFILE_EDIT_API_URL = '/profile/api/update/';
 const editButton = document.querySelector('#edit-profile');
-const formConteiner = document.querySelector('#form-profile');
+const formContainer = document.querySelector('#form-profile');
 const form = document.querySelector('#form-profile form');
 const data = document.querySelector('#profile_container .data');
 const nameInput = document.querySelector('form input[name="name"]');
@@ -91,7 +91,7 @@ function fetchProfile() {
 }
 
 function onEditButtonClicked(event) {
-  formConteiner.classList.remove('hidden');
+  formContainer.classList.remove('hidden');
   data.classList.add('hidden');
 }
 
@@ -102,7 +102,7 @@ function onUpdateProfileResponse(response) {
 function onUpdateProfileJson(json) {
   fetchProfile();
 
-  formConteiner.classList.add('hidden');
+  formContainer.classList.add('hidden');
   data.classList.remove('hidden');
 }
 
