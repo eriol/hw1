@@ -16,7 +16,7 @@
     {
         $athlete = $_POST["athlete"];
 
-        if (trim($athlete === "") {
+        if (trim($athlete) === "") {
             echo json_encode(["error" => "Il campo athlete non può essere vuoto"]);
             exit;
         }

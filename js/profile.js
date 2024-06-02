@@ -1,5 +1,7 @@
 const PROFILE_API_URL = '/profile/api/get/';
 const PROFILE_EDIT_API_URL = '/profile/api/update/';
+const PROFILE_FAVORITE_ATHLETE_EDIT_API_URL =
+  '/profile/api/update-favorite-athlete/';
 const ATHLETES_EXTERNAL_API_URL = 'https://wp24-athletes.colca.mornie.org';
 const ATHLETES_SEARCH_API_URL = '/search-athletes/?q=';
 const editButton = document.querySelector('#edit-profile');
@@ -128,6 +130,25 @@ function onProfileUpdate(event) {
   }
 }
 
+function onUpdateProfileAthleteJson(json) {
+  overlay.classList.add('hidden');
+  fetchProfile();
+}
+
+function onCardClicked(event) {
+  const slug = event.currentTarget.dataset.slug.trim();
+
+  if (slug !== '') {
+    const data = new FormData();
+    data.append('athlete', slug);
+    const formData = { method: 'POST', body: data };
+
+    fetch(PROFILE_FAVORITE_ATHLETE_EDIT_API_URL, formData).then(
+      onUpdateProfileResponse,
+    ).then(onUpdateProfileAthleteJson);
+  }
+}
+
 function onEditAthleteButtonClicked(event) {
   overlay.classList.remove('hidden');
 }
@@ -156,6 +177,7 @@ function onSearchAthleteJson(athletes) {
     card.appendChild(image);
 
     searchResults.appendChild(card);
+    card.addEventListener('click', onCardClicked);
   }
 }
 
