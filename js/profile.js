@@ -1,5 +1,6 @@
 const PROFILE_API_URL = '/profile/api/get/';
 const PROFILE_EDIT_API_URL = '/profile/api/update/';
+const ATHLETES_SEARCH_API_URL = '/search-athletes/?q=';
 const editButton = document.querySelector('#edit-profile');
 const formContainer = document.querySelector('#form-profile');
 const form = document.querySelector('#form-profile form');
@@ -9,6 +10,9 @@ const bioInput = document.querySelector('form input[name="bio"]');
 const ageInput = document.querySelector('form input[name="age"]');
 const editAthleteButton = document.querySelector('#edit-athlete');
 const overlay = document.querySelector('#overlay');
+const searchAthleteButton = document.querySelector(
+  '#search_athlete input[type="submit"]',
+);
 
 function validate_empty(value) {
   if (value.trim() === '') {
@@ -126,11 +130,30 @@ function onEditAthleteButtonClicked(event) {
   overlay.classList.remove('hidden');
 }
 
+function onSearchAthleteResponse(response) {
+  return response.json();
+}
+
+function onSearchAthleteJson(json) {
+  console.log(json);
+}
+
+function onSearchAthleteButtonClicked(event) {
+  event.preventDefault();
+
+  const athlete = document.querySelector('.athlete');
+
+  fetch(ATHLETES_SEARCH_API_URL + encodeURIComponent(athlete.value)).then(
+    onSearchAthleteResponse,
+  ).then(onSearchAthleteJson);
+}
+
 nameInput.addEventListener('blur', check_name);
 ageInput.addEventListener('blur', check_age);
 bioInput.addEventListener('blur', check_bio);
 editButton.addEventListener('click', onEditButtonClicked);
 form.addEventListener('submit', onProfileUpdate);
 editAthleteButton.addEventListener('click', onEditAthleteButtonClicked);
+searchAthleteButton.addEventListener('click', onSearchAthleteButtonClicked);
 
 fetchProfile();

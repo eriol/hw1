@@ -59,7 +59,7 @@
     <div id="search_athlete_container">
       <form id="search_athlete">
         <div class="table-row">
-          <input class="search-athlete" type="text" name="search-athlete">
+          <input class="athlete" type="text" name="search-athlete">
           <input type="submit" value="Cerca">
         </div>
       </form>
