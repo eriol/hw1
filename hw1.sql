@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS profiles (
     name VARCHAR(200),
     age INT,
     bio TEXT,
+    favorite_athlete VARCHAR(200),
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

@@ -30,5 +30,22 @@
             return "Si è verificato un errore " . mysqli_error($conn);
         }
     }
+    function update_athlete_profile($conn, $athlete) {
+
+        $user_id = $_SESSION["logged_user_id"];
+
+        $athlete = mysqli_real_escape_string($conn, $athlete);
+
+
+        $query = "UPDATE profiles SET favorite_athlete='$athlete' WHERE user_id = $user_id";
+
+        $res = mysqli_query($conn, $query);
+
+        if ($res) {
+            return $res;
+        } else {
+            return "Si è verificato un errore " . mysqli_error($conn);
+        }
+    }
 
 ?>
