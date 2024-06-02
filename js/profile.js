@@ -7,6 +7,8 @@ const data = document.querySelector('#profile_container .data');
 const nameInput = document.querySelector('form input[name="name"]');
 const bioInput = document.querySelector('form input[name="bio"]');
 const ageInput = document.querySelector('form input[name="age"]');
+const editAthleteButton = document.querySelector('#edit-athlete');
+const overlay = document.querySelector('#overlay');
 
 function validate_empty(value) {
   if (value.trim() === '') {
@@ -120,10 +122,15 @@ function onProfileUpdate(event) {
   }
 }
 
+function onEditAthleteButtonClicked(event) {
+  overlay.classList.remove('hidden');
+}
+
 nameInput.addEventListener('blur', check_name);
 ageInput.addEventListener('blur', check_age);
 bioInput.addEventListener('blur', check_bio);
 editButton.addEventListener('click', onEditButtonClicked);
 form.addEventListener('submit', onProfileUpdate);
+editAthleteButton.addEventListener('click', onEditAthleteButtonClicked);
 
 fetchProfile();

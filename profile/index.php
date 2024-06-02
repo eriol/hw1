@@ -50,10 +50,19 @@
         <input type="submit" name="submit_button" value="Salva">
       </form>
     </div>
+    <div class="title">Atleta preferito <span id="edit-athlete"><img class="edit" src="/images/pen-to-square-solid.svg"></span></div>
+
   </div>
 
+  <div id="overlay" class="hidden">
+    <div class="title">Cerca il tuo atleta preferito</div>
+    <div id="search_athlete_container">
+      <form>
+        <input class="search-athlete" type="input" name="search-athlete">
+      </form>
+    </div>
+  </div>
 
-  <div id="overlay" class="hidden"></div>
 </section>
 
 <?php require_once("../footer.php") ?>
