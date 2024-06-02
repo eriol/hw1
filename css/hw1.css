@@ -358,6 +358,36 @@ a.account_register_email:hover {
   background-color: var(--primary-color);
 }
 
+#search_results {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#search_results,
+.card {
+  display: flex;
+}
+
+.card {
+  background-color: white;
+  border: 2px solid white;
+  flex-direction: column;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.card .name {
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.card img {
+  padding: 10px;
+}
+
 img.edit {
   height: 20px;
 }

@@ -64,6 +64,7 @@
         </div>
       </form>
     </div>
+    <div id="search_results"></div>
   </div>
 
 </section>
