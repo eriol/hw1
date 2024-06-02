@@ -215,9 +215,12 @@ function onSearchAthleteButtonClicked(event) {
 
   const athlete = document.querySelector('.athlete');
 
-  fetch(ATHLETES_SEARCH_API_URL + encodeURIComponent(athlete.value)).then(
-    onSearchAthleteResponse,
-  ).then(onSearchAthleteJson);
+  const toSearch = athlete.value.trim();
+  if (toSearch !== '') {
+    fetch(ATHLETES_SEARCH_API_URL + encodeURIComponent(toSearch)).then(
+      onSearchAthleteResponse,
+    ).then(onSearchAthleteJson);
+  }
 }
 
 nameInput.addEventListener('blur', check_name);
