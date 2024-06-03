@@ -20,17 +20,18 @@
         <form action="">
           <div>
             <label for="name">Titolo: </label>
-            <input type="text" name="title" />
+            <input type="text" name="name" />
             <p class="error text-small"></p>
           </div>
           <div>
-            <label for="name">Sport: </label>
-            <input type="text" name="title" />
+            <label for="sport">Sport: </label>
+            <select name="sport">
+            </select>
             <p class="error text-small"></p>
           </div>
           <div>
-            <label for="bio">Performance: </label>
-            <input type="input" name="bio" />
+            <label for="performance">Performance: </label>
+            <input type="input" name="performance" />
             <p class="error text-small"></p>
           </div>
           <div>

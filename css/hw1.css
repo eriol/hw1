@@ -241,7 +241,8 @@ a.account_register_email:hover {
 
 #form_container input,
 #form_container label,
-#form_container textarea {
+#form_container textarea,
+#form_container select {
   display: block;
   width: 100%;
 }
@@ -263,7 +264,8 @@ a.account_register_email:hover {
 }
 
 #form_container input,
-#form_container textarea {
+#form_container textarea,
+#form_container select {
   font-size: 1.2em;
   padding: 15px 24px;
   box-sizing: border-box;
