@@ -240,7 +240,8 @@ a.account_register_email:hover {
 }
 
 #form_container input,
-#form_container label {
+#form_container label,
+#form_container textarea {
   display: block;
   width: 100%;
 }
@@ -261,7 +262,8 @@ a.account_register_email:hover {
   padding: 20px 30px;
 }
 
-#form_container input {
+#form_container input,
+#form_container textarea {
   font-size: 1.2em;
   padding: 15px 24px;
   box-sizing: border-box;
@@ -277,14 +279,16 @@ a.account_register_email:hover {
   margin-bottom: 20px;
 }
 
-#profile_container {
+#profile_container,
+#activities_container {
   border-radius: 2px;
   width: 60%;
 
   margin: 20px auto;
 }
 
-#profile_container .title {
+#profile_container .title,
+#activities_container .title {
   font-size: 2em;
   margin-bottom: 20px;
   padding: 10px 0px;
