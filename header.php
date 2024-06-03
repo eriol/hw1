@@ -42,7 +42,11 @@
                 if(check_session()) {
                     echo '<li>
                             <a href="/profile/">Profilo</a>
-                          </li>';
+                          </li>
+                          <li>
+                            <a href="/activities/create/">Nuova Attività</a>
+                          </li>
+                          ';
                 } else {
                     echo '<li>
                             <a href="#">Funzioni</a>
