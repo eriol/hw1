@@ -18,6 +18,7 @@ const searchAthleteButton = document.querySelector(
   '#search_athlete input[type="submit"]',
 );
 const searchResults = document.getElementById('search_results');
+const athleteContainer = document.getElementById('athlete_container');
 
 function validate_empty(value) {
   if (value.trim() === '') {
@@ -88,7 +89,6 @@ function onAthleteResponse(response) {
 
 function onAthleteJson(json) {
   console.log(json);
-  const athleteContainer = document.getElementById('athlete_container');
   athleteContainer.innerHTML = '';
 
   const name = document.createElement('div');
@@ -99,6 +99,7 @@ function onAthleteJson(json) {
   image.src = ATHLETES_EXTERNAL_API_URL + '/images/' + json.slug
     + '?size=M';
   athleteContainer.appendChild(image);
+  athleteContainer.dataset.slug = json.slug;
 }
 
 function onProfileJson(json) {
@@ -180,6 +181,7 @@ function onCardClicked(event) {
 
 function onEditAthleteButtonClicked(event) {
   overlay.classList.remove('hidden');
+  searchResults.innerHTML = '';
 }
 
 function onSearchAthleteResponse(response) {
@@ -190,10 +192,15 @@ function onSearchAthleteJson(athletes) {
   console.log(athletes);
   searchResults.innerHTML = '';
   for (let i in athletes) {
-    console.log(athletes[i].slug);
+    const slug = athletes[i].slug;
+    console.log(slug);
     const card = document.createElement('div');
-    card.dataset.slug = athletes[i].slug;
+    card.dataset.slug = slug;
     card.classList.add('card');
+
+    if (slug === athleteContainer.dataset.slug) {
+      card.classList.add('selected');
+    }
 
     const name = document.createElement('div');
     name.classList.add('name');

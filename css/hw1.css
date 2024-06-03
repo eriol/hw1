@@ -387,6 +387,9 @@ a.account_register_email:hover {
 .card img {
   padding: 10px;
 }
+.card.selected {
+  border: 3px solid var(--primary-color) !important;
+}
 
 #athlete_container {
   display: flex;
