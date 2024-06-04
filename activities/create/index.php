@@ -25,8 +25,7 @@
           </div>
           <div>
             <label for="sport">Sport: </label>
-            <select name="sport">
-            </select>
+            <select id="sports-select" name="sport"></select>
             <p class="error text-small"></p>
           </div>
           <div>
