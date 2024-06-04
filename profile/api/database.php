@@ -30,6 +30,7 @@
             return "Si è verificato un errore " . mysqli_error($conn);
         }
     }
+
     function update_athlete_profile($conn, $athlete) {
 
         $user_id = $_SESSION["logged_user_id"];
