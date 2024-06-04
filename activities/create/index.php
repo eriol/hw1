@@ -17,11 +17,11 @@
     <div class="title">Nuova Attività</div>
     <div id="form_container">
       <div class="data">
-        <form action="">
-          <div>
-            <label for="name">Titolo: </label>
-            <input type="text" name="name" />
-            <p class="error text-small"></p>
+        <form action="" method="post">
+          <div class="">
+            <label for="title">Titolo: </label>
+            <input type="text" name="title" />
+            <p id="error-title" class="error text-small"></p>
           </div>
           <div>
             <label for="sport">Sport: </label>
@@ -31,14 +31,14 @@
           <div>
             <label for="performance">Performance: </label>
             <input type="input" name="performance" />
-            <p class="error text-small"></p>
+            <p id="error-performance" class="error text-small"></p>
           </div>
           <div>
             <label for="description">Descrizione: </label>
             <textarea type="text" name="description" rows="5"></textarea>
-            <p class="error text-small"></p>
+            <p id="error-description" class="error text-small"></p>
           </div>
-          <input type="submit" name="submit_button" value="Salva">
+          <input type="submit" name="save_activity" value="Salva">
         </form>
       </div>
     </div>

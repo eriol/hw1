@@ -1,4 +1,8 @@
 const SPORTS_API_URL = '/activities/api/get-sports/';
+const title = document.querySelector('form input[name="title"]');
+const description = document.querySelector('form textarea[name="description"]');
+const performance = document.querySelector('form input[name="performance"]');
+const saveButton = document.querySelector('form input[name="save_activity"]');
 
 function onSportsResponse(response) {
   return response.json();
@@ -18,5 +22,71 @@ function onSportsJson(json) {
 function fetchSports() {
   fetch(SPORTS_API_URL).then(onSportsResponse).then(onSportsJson);
 }
+
+function validate_empty(value) {
+  if (value.trim() === '') {
+    return false;
+  }
+
+  return true;
+}
+
+function checkNotEmpty(errorId, field, errorMessage) {
+  function check_field(event) {
+    const error = document.getElementById(errorId);
+    const is_field_valid = validate_empty(field.value);
+    if (!is_field_valid) {
+      error.textContent = errorMessage;
+      return false;
+    } else {
+      error.textContent = '';
+      return true;
+    }
+  }
+
+  return check_field;
+}
+
+const check_title = checkNotEmpty(
+  'error-title',
+  title,
+  'Il titolo non può essere vuoto.',
+);
+const check_description = checkNotEmpty(
+  'error-description',
+  description,
+  'La descrizione non può essere vuota.',
+);
+
+function validate_performance(f) {
+  const n = parseFloat(f);
+  const is_performance_valid = n <= 10 || n >= 1;
+  if (!is_performance_valid) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function check_performance(event) {
+  const error = document.getElementById('error-performance');
+  const is_performance_valid = validate_performance(performance.value);
+  if (!is_performance_valid) {
+    error.textContent = 'Performance deve essere compreso tra 1 e 10.';
+    return false;
+  } else {
+    error.textContent = '';
+    return true;
+  }
+}
+
+function onSaveButtonClicked(event) {
+  event.preventDefault();
+}
+
+saveButton.addEventListener('click', onSaveButtonClicked);
+title.addEventListener('blur', check_title);
+performance.addEventListener('blur', check_performance);
+description.addEventListener('blur', check_description);
 
 fetchSports();
