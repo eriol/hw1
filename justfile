@@ -47,4 +47,5 @@ destroy: stop
     podman rm {{php_container_name}}
     podman rm {{database_container_name}}
     podman pod rm {{pod_name}}
+    buildah rm --all
     rm -rf {{database_data_path}}
