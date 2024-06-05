@@ -281,6 +281,7 @@ a.account_register_email:hover {
   margin-bottom: 20px;
 }
 
+#home_container,
 #profile_container,
 #activities_container {
   border-radius: 2px;
@@ -414,6 +415,39 @@ a.account_register_email:hover {
 
 img.edit {
   height: 20px;
+}
+
+.activity {
+  width: 60%;
+  margin: 20px auto;
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--footer-background-color);
+  padding: 10px;
+}
+
+.activity .header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.activity .description {
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.activity .title {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.activity .footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 footer {

@@ -46,4 +46,27 @@
         return $res;
     }
 
+    function get_activities($conn) {
+
+        $query = "SELECT * FROM activities INNER JOIN users ON users.id = activities.user_id";
+        $activities = [];
+        $res = mysqli_query($conn, $query);
+        if ($res) {
+            while($row = mysqli_fetch_assoc($res)){
+                $activities[] = [
+                    'id' => $row["id"],
+                    'title' => $row["title"],
+                    'description' => $row['description'],
+                    'performance' => $row['performance'],
+                    'deity' => $row['deity'],
+                    'deity_influence' => $row['deity_influence'],
+                    'email' => $row["email"],
+                    'created_at' => $row["created_at"]
+                ];
+            }
+
+        }
+        return $activities;
+    }
+
 ?>
