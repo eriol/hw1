@@ -14,14 +14,7 @@ const MAX_CHOICES = 3;
 const ATHLETES_API_URL = 'https://wp24-athletes.colca.mornie.org';
 const ATHLETES_API_URL_RANDOM = ATHLETES_API_URL + '/random';
 const DEITIES_API_URL = 'https://wp24-deities.colca.mornie.org';
-const DEITIES_API_URL_RANDOM = DEITIES_API_URL + '/random';
-const DEITIES_API_CLIENT_ID = 'eriol';
-// This is something you MUST not to do, but it's required for the
-// homework. Anyway I wrote this API and although it uses OAuth2 it's
-// read only and the data are public.
-const DEITIES_API_CLIENT_SECRET = '1qaz2wsx3edc4rfv5tgb6yhn7ujm';
-const DEITIES_API_URL_TOKEN = DEITIES_API_URL + '/token';
-const DEITIES_API_URL_RANDOM_DEITY = DEITIES_API_URL + '/random';
+const DEITIES_API_URL_RANDOM = '/deity-random/';
 
 const menu = document.querySelector('#menu');
 const menuPanel = document.querySelector('#menu_panel');
@@ -152,32 +145,8 @@ function onAthletesJson(json) {
   athletePhoto.appendChild(newImg);
 }
 
-let token;
-
-const deitiesTokenUrl = new URL(DEITIES_API_URL_TOKEN);
-deitiesTokenUrl.searchParams.append('grant_type', 'client_credentials');
-deitiesTokenUrl.searchParams.append('client_id', DEITIES_API_CLIENT_ID);
-deitiesTokenUrl.searchParams.append('client_secret', DEITIES_API_CLIENT_SECRET);
-
-fetch(deitiesTokenUrl.href).then(onTokenResponse).then(onTokenJson);
-
-function onTokenResponse(response) {
-  return response.json();
-}
-
-function onTokenJson(json) {
-  token = json.access_token;
-
-  loadOlympusInfluence();
-}
-
 function loadOlympusInfluence() {
-  fetch(DEITIES_API_URL_RANDOM_DEITY, {
-    headers: {
-      'Authorization': 'Bearer ' + token,
-      'Access-Control-Request-Method': 'GET',
-    },
-  }).then(onRandomDeityResponse).then(
+  fetch(DEITIES_API_URL_RANDOM).then(onRandomDeityResponse).then(
     onRandomDeityJson,
   );
 }
@@ -187,6 +156,7 @@ function onRandomDeityResponse(response) {
 }
 
 function onRandomDeityJson(json) {
+  console.log(json);
   const newH2 = document.createElement('h2');
   newH2.textContent = json.name;
   deities.appendChild(newH2);
@@ -212,7 +182,6 @@ function onDeityInfluenceResponse(response) {
 }
 
 function onDeityInfluenceJson(json) {
-  console.log(json);
   const randomSport = json[Math.floor(Math.random() * json.length)];
   let what;
   if (randomSport.influence < 1) {
@@ -228,3 +197,5 @@ function onDeityInfluenceJson(json) {
 
   console.log(randomSport);
 }
+
+loadOlympusInfluence();
