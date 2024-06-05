@@ -48,7 +48,7 @@
 
     function get_activities($conn) {
 
-        $query = "SELECT * FROM activities INNER JOIN users ON users.id = activities.user_id";
+        $query = "SELECT * FROM activities INNER JOIN users ON users.id = activities.user_id ORDER BY created_at DESC";
         $activities = [];
         $res = mysqli_query($conn, $query);
         if ($res) {

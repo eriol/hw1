@@ -8,6 +8,9 @@
     }
 
     $title = "ἀθλητική (athletikḗ) - Home";
+    $extra_js = [
+        ["file" => "home.js", "type" => ""]
+    ];
     require_once("../header.php");
 ?>
 
