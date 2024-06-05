@@ -1,8 +1,11 @@
 const SPORTS_API_URL = '/activities/api/get-sports/';
+const NEW_ACTIVITY_API_URL = '/activities/api/create/';
+
 const title = document.querySelector('form input[name="title"]');
 const description = document.querySelector('form textarea[name="description"]');
 const performance = document.querySelector('form input[name="performance"]');
 const saveButton = document.querySelector('form input[name="save_activity"]');
+const form = document.querySelector('form');
 
 function onSportsResponse(response) {
   return response.json();
@@ -60,7 +63,7 @@ const check_description = checkNotEmpty(
 
 function validate_performance(f) {
   const n = parseFloat(f);
-  const is_performance_valid = n <= 10 || n >= 1;
+  const is_performance_valid = n <= 10 && n >= 1;
   if (!is_performance_valid) {
     return false;
   } else {
@@ -80,8 +83,28 @@ function check_performance(event) {
   }
 }
 
+function onNewActivityResponse(response) {
+  return response.json();
+}
+
+function onNewActivityJson(json) {
+  console.log(json);
+}
+
 function onSaveButtonClicked(event) {
   event.preventDefault();
+
+  const is_title_valid = check_title();
+  const is_description_valid = check_description();
+  const is_performance_valid = check_performance();
+
+  if (is_title_valid && is_performance_valid && is_description_valid) {
+    const formData = { method: 'POST', body: new FormData(form) };
+
+    fetch(NEW_ACTIVITY_API_URL, formData).then(onNewActivityResponse).then(
+      onNewActivityJson,
+    );
+  }
 }
 
 saveButton.addEventListener('click', onSaveButtonClicked);

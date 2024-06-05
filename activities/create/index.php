@@ -18,7 +18,7 @@
     <div id="form_container">
       <div class="data">
         <form action="" method="post">
-          <div class="">
+          <div>
             <label for="title">Titolo: </label>
             <input type="text" name="title" />
             <p id="error-title" class="error text-small"></p>
