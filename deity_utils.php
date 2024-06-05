@@ -49,4 +49,27 @@
 
         return $deity;
     }
+
+    function get_deity_influence($deity)
+    {
+        global $base_url;
+
+
+        $random_url = $base_url . '/deities/' . $deity . '/influence';
+        $token = get_access_token();
+        $headers = [
+           "Authorization: Bearer $token",
+           "Access-Control-Request-Method: GET"
+        ];
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $random_url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $influence = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+
+        return $influence;
+    }
 ?>

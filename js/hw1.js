@@ -13,7 +13,6 @@ const MAX_CHOICES = 3;
 
 const ATHLETES_API_URL = 'https://wp24-athletes.colca.mornie.org';
 const ATHLETES_API_URL_RANDOM = ATHLETES_API_URL + '/random';
-const DEITIES_API_URL = 'https://wp24-deities.colca.mornie.org';
 const DEITIES_API_URL_RANDOM = '/deity-random/';
 
 const menu = document.querySelector('#menu');
@@ -156,7 +155,6 @@ function onRandomDeityResponse(response) {
 }
 
 function onRandomDeityJson(json) {
-  console.log(json);
   const newH2 = document.createElement('h2');
   newH2.textContent = json.name;
   deities.appendChild(newH2);
@@ -165,16 +163,10 @@ function onRandomDeityJson(json) {
 }
 
 function deityInfluence(deity_id) {
-  const u = new URL('./deities/' + deity_id + '/influence', DEITIES_API_URL);
-  console.log(u.href);
-  fetch(u.href, {
-    headers: {
-      'Authorization': 'Bearer ' + token,
-      'Access-Control-Request-Method': 'GET',
-    },
-  }).then(onDeityInfluenceResponse).then(
-    onDeityInfluenceJson,
-  );
+  fetch('/deity-influence/?deity=' + deity_id).then(onDeityInfluenceResponse)
+    .then(
+      onDeityInfluenceJson,
+    );
 }
 
 function onDeityInfluenceResponse(response) {
@@ -194,8 +186,6 @@ function onDeityInfluenceJson(json) {
   newP.textContent = 'ti darà un ' + what + ' in '
     + randomSport.name.toLowerCase() + '.';
   deities.appendChild(newP);
-
-  console.log(randomSport);
 }
 
 loadOlympusInfluence();
