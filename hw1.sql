@@ -25,11 +25,13 @@ CREATE TABLE IF NOT EXISTS sports (
 
 CREATE TABLE IF NOT EXISTS activities (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255),
-    description TEXT,
-    performance FLOAT,
-    sport_id VARCHAR(100),
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    performance FLOAT NOT NULL,
+    sport_id VARCHAR(100) NOT NULL,
     user_id INT,
+    deity VARCHAR(100),
+    deity_influence FLOAT,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (sport_id) REFERENCES sports(id) ON DELETE CASCADE
 );
