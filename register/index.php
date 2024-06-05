@@ -27,7 +27,7 @@
             }
         }
 
-        if (strlen($password < 8)) {
+        if (strlen($password) < 8) {
             $errors[] = "La password deve contenere almeno 8 caratteri!";
         }
 
