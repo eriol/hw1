@@ -29,14 +29,17 @@
         return false;
     }
 
-    function create_activity($conn, $title, $sport, $performance, $description, $user_id) {
+    function create_activity($conn, $title, $sport, $performance, $description, $deity, $deity_influence, $user_id) {
 
         $title = mysqli_real_escape_string($conn, $title);
         $sport = mysqli_real_escape_string($conn, $sport);
         $performance = mysqli_real_escape_string($conn, $performance);
         $description = mysqli_real_escape_string($conn, $description);
+        $deity = mysqli_real_escape_string($conn, $deity);
+        $deity_influence = mysqli_real_escape_string($conn, $deity_influence);
+        $deity_influence = floatval($deity_influence);
 
-        $query = "INSERT INTO activities(title, description, performance, sport_id, user_id) VALUES ('$title', '$description', $performance, '$sport', $user_id)";
+        $query = "INSERT INTO activities(title, description, performance, sport_id, deity, deity_influence, user_id) VALUES ('$title', '$description', $performance, '$sport', '$deity', $deity_influence, $user_id)";
 
         $res = mysqli_query($conn, $query);
 

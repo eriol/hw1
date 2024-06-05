@@ -1,7 +1,5 @@
 <?php
 
-    require_once("../config.php");
-
     $base_url = 'https://wp24-deities.colca.mornie.org';
 
     function get_access_token()

@@ -4,6 +4,7 @@
     require_once("../../../database_utils.php");
     require_once("../../../config.php");
     require_once("../database.php");
+    require_once("../../../deity_utils.php");
 
     if(!check_session()) {
         header("Location: /login/");
@@ -11,6 +12,16 @@
     }
 
     header('Content-Type: application/json; charset=utf-8');
+
+    function searchInfluenceForSport($sport, $array)
+    {
+        foreach ($array as $key => $val) {
+                if ($val['sport_id'] === $sport) {
+                    return $val['influence'];
+            }
+        }
+        return null;
+    }
 
     if(!empty($_POST["title"]) && !empty($_POST["sport"]) && !empty($_POST["performance"]) && !empty($_POST["description"]))
     {
@@ -41,7 +52,21 @@
 
         if (count($errors) == 0) {
             $user_id = $_SESSION["logged_user_id"];
-            $created = create_activity($conn, $title, $sport, $performance, $description, $user_id);
+
+            $deity = get_random_deity();
+            $influence = get_deity_influence($deity['id']);
+            $sport_influence = searchInfluenceForSport($sport, $influence);
+
+
+            $created = create_activity(
+                $conn,
+                $title,
+                $sport,
+                $performance,
+                $description,
+                $deity["name"],
+                $sport_influence,
+                $user_id);
             if ($created) {
                 echo json_encode(["errors"=>[]]);
             } else {
