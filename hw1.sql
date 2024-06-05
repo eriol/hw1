@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS activities (
     user_id INT,
     deity VARCHAR(100),
     deity_influence FLOAT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (sport_id) REFERENCES sports(id) ON DELETE CASCADE
 );
