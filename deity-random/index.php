@@ -1,5 +1,5 @@
 <?php
-    require_once("./utils.php");
+    require_once("../deity_utils.php");
 
     $deity = get_random_deity();
 
